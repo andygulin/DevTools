@@ -1,4 +1,4 @@
-package convert
+package yaml2json
 
 type Yaml2Json interface {
 	Convert(input string) (string, error)

@@ -1,4 +1,4 @@
-package format
+package sql
 
 import (
 	"github.com/cockroachdb/cockroachdb-parser/pkg/sql/parser"

@@ -1,4 +1,4 @@
-package format
+package xml
 
 import "testing"
 

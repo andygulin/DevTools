@@ -1,4 +1,4 @@
-package encode
+package url
 
 import (
 	"testing"

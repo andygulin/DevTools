@@ -1,4 +1,4 @@
-package image
+package compress
 
 type Compress interface {
 	Compress(input string, output string) error

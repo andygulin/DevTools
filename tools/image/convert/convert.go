@@ -1,4 +1,4 @@
-package image
+package convert
 
 type Convert interface {
 	Convert(input string, output string) error

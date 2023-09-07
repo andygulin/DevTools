@@ -1,4 +1,4 @@
-package convert
+package json2yaml
 
 type Json2Yaml interface {
 	Convert(input string) (string, error)

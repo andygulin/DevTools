@@ -1,4 +1,4 @@
-package encode
+package base64
 
 import "testing"
 
