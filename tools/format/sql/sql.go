@@ -3,6 +3,7 @@ package sql
 import (
 	"github.com/cockroachdb/cockroachdb-parser/pkg/sql/parser"
 	"github.com/cockroachdb/cockroachdb-parser/pkg/sql/sem/tree"
+	"os"
 	"regexp"
 	"strings"
 	"unicode"
@@ -30,13 +31,11 @@ func (obj *SQLFormat) Format(input string) (string, error) {
 		for len(stmt) > 0 {
 			stmt = strings.TrimSpace(stmt)
 			hasContent := false
-			// Trim comments, preserving whitespace after them.
 			for {
 				found := ignoreComments.FindString(stmt)
 				if found == "" {
 					break
 				}
-				// Remove trailing whitespace but keep up to 2 newlines.
 				prettied.WriteString(strings.TrimRightFunc(found, unicode.IsSpace))
 				newlines := strings.Count(found, "\n")
 				if newlines > 2 {
@@ -46,7 +45,6 @@ func (obj *SQLFormat) Format(input string) (string, error) {
 				stmt = stmt[len(found):]
 				hasContent = true
 			}
-			// Split by semicolons
 			next := stmt
 			if pos, _ := parser.SplitFirstStatement(stmt); pos > 0 {
 				next = stmt[:pos]
@@ -54,7 +52,6 @@ func (obj *SQLFormat) Format(input string) (string, error) {
 			} else {
 				stmt = ""
 			}
-			// This should only return 0 or 1 responses.
 			allParsed, err := parser.Parse(next)
 			if err != nil {
 				return "", err
@@ -71,4 +68,20 @@ func (obj *SQLFormat) Format(input string) (string, error) {
 	}
 
 	return strings.TrimRightFunc(prettied.String(), unicode.IsSpace), nil
+}
+
+func (obj *SQLFormat) FormatFile(filename string) (string, error) {
+	content, err := os.ReadFile(filename)
+	if err != nil {
+		return "", err
+	}
+	str, err := obj.Format(string(content))
+	if err != nil {
+		return "", err
+	}
+	err = os.WriteFile(filename, []byte(str), 0644)
+	if err != nil {
+		return "", err
+	}
+	return filename, nil
 }

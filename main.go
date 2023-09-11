@@ -1,5 +1,7 @@
 package main
 
-func main() {
+import "DevTools/cmd"
 
+func main() {
+	cmd.Execute()
 }

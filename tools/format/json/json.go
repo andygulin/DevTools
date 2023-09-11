@@ -1,6 +1,9 @@
 package json
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"os"
+)
 
 type JsonFormat struct {
 }
@@ -17,4 +20,20 @@ func (obj *JsonFormat) Format(input string) (string, error) {
 		return "", err
 	}
 	return string(b), nil
+}
+
+func (obj *JsonFormat) FormatFile(filename string) (string, error) {
+	content, err := os.ReadFile(filename)
+	if err != nil {
+		return "", err
+	}
+	str, err := obj.Format(string(content))
+	if err != nil {
+		return "", err
+	}
+	err = os.WriteFile(filename, []byte(str), 0644)
+	if err != nil {
+		return "", err
+	}
+	return filename, nil
 }
