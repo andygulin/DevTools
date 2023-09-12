@@ -1,0 +1,14 @@
+{
+  "name": "abc",
+  "age": 15,
+  "time": "2023-01-01 23:43:24",
+  "interest": [
+    "football",
+    "basketball",
+    "running"
+  ],
+  "intro": {
+    "height": 170,
+    "weight": 50
+  }
+}

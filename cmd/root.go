@@ -2,6 +2,9 @@ package cmd
 
 import (
 	. "DevTools/cmd/convert"
+	. "DevTools/cmd/encode"
+	. "DevTools/cmd/hash"
+	. "DevTools/cmd/uuid"
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
@@ -17,11 +20,18 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute() {
-	TimeCmd.AddCommand(TimeTimestampCmd)
-	TimeCmd.AddCommand(TimeNowCmd)
-	TimeCmd.AddCommand(TimeFormatTimeCmd)
+	TimeCmd.AddCommand(TimeTimestampCmd, TimeNowCmd, TimeFormatTimeCmd)
 
 	rootCmd.AddCommand(TimeCmd)
+	rootCmd.AddCommand(UUIDCmd)
+	rootCmd.AddCommand(MD5Cmd, SHA1Cmd, SHA256Cmd, SHA512Cmd)
+
+	UrlCmd.AddCommand(UrlEncodeCmd, UrlDecodeCmd)
+	rootCmd.AddCommand(UrlCmd)
+
+	Base64Cmd.AddCommand(Base64TextCmd, Base64ImageCmd)
+	rootCmd.AddCommand(Base64Cmd)
+
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
