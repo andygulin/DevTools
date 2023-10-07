@@ -32,6 +32,12 @@ func Execute() {
 	Base64Cmd.AddCommand(Base64TextCmd, Base64ImageCmd)
 	rootCmd.AddCommand(Base64Cmd)
 
+	JwtCmd.AddCommand(JwtCreateCmd, JwtParseCmd)
+	rootCmd.AddCommand(JwtCmd)
+
+	NumberCmd.AddCommand(Number2Cmd, Number8Cmd, Number10Cmd, Number16Cmd)
+	rootCmd.AddCommand(NumberCmd)
+
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)

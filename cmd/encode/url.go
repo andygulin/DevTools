@@ -14,8 +14,8 @@ func init() {
 
 var UrlCmd = &cobra.Command{
 	Use:   "url",
-	Short: "",
-	Long:  "",
+	Short: "URL Encode/Decode.",
+	Long:  "URL Encode/Decode.",
 	Args: func(cmd *cobra.Command, args []string) error {
 		return nil
 	},
@@ -26,8 +26,8 @@ var UrlCmd = &cobra.Command{
 
 var UrlEncodeCmd = &cobra.Command{
 	Use:   "encode",
-	Short: "",
-	Long:  "",
+	Short: "URL Encode.",
+	Long:  "URL Encode.",
 	Args: func(cmd *cobra.Command, args []string) error {
 		return nil
 	},
@@ -39,8 +39,8 @@ var UrlEncodeCmd = &cobra.Command{
 
 var UrlDecodeCmd = &cobra.Command{
 	Use:   "decode",
-	Short: "",
-	Long:  "",
+	Short: "URL Decode.",
+	Long:  "URL Decode.",
 	Args: func(cmd *cobra.Command, args []string) error {
 		return nil
 	},

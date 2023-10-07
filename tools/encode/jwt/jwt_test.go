@@ -14,9 +14,7 @@ func init() {
 }
 
 func TestJwtImpl_Create(t *testing.T) {
-	keyValue := make(map[string]any)
-	keyValue["userId"] = 1
-	token, err := obj.Create(1)
+	token, err := obj.Create(30227)
 	if err != nil {
 		t.Log(err)
 	}
@@ -24,7 +22,7 @@ func TestJwtImpl_Create(t *testing.T) {
 }
 
 func TestJwtImpl_Parse(t *testing.T) {
-	jwtToken := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTY5NDUxNzQ4MH0.2vethnAEuwhj0CmhHpaLSENNUHwd-7t18RPKGNrwwGQ"
+	jwtToken := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjMwMjI3LCJleHAiOjE2OTY2NjY1NTB9.oFxTjzJhk6Px9Lka3JR0jiCvAGwKBMENWzdbTKbHswU"
 	userId, err := obj.Parse(jwtToken)
 	if err != nil {
 		t.Log(err)

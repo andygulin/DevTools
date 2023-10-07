@@ -14,8 +14,8 @@ func init() {
 
 var Base64Cmd = &cobra.Command{
 	Use:   "base64",
-	Short: "",
-	Long:  "",
+	Short: "base64 transcoding.",
+	Long:  "Input string or image, output base64 encoding.",
 	Args: func(cmd *cobra.Command, args []string) error {
 		return nil
 	},
@@ -26,8 +26,8 @@ var Base64Cmd = &cobra.Command{
 
 var Base64TextCmd = &cobra.Command{
 	Use:   "text",
-	Short: "",
-	Long:  "",
+	Short: "String transcoding.",
+	Long:  "Input string, output base64 encoding.",
 	Args: func(cmd *cobra.Command, args []string) error {
 		return nil
 	},
@@ -39,8 +39,8 @@ var Base64TextCmd = &cobra.Command{
 
 var Base64ImageCmd = &cobra.Command{
 	Use:   "image",
-	Short: "",
-	Long:  "",
+	Short: "Image transcoding.",
+	Long:  "Input image, output base64 encoding.",
 	Args: func(cmd *cobra.Command, args []string) error {
 		return nil
 	},

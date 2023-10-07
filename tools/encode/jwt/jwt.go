@@ -1,7 +1,6 @@
 package jwt
 
 import (
-	"fmt"
 	"github.com/golang-jwt/jwt/v4"
 	"time"
 )
@@ -40,14 +39,13 @@ func (obj *JwtImpl) Create(userId int) (string, error) {
 }
 
 func (obj *JwtImpl) Parse(jwtToken string) (int, error) {
-	tokenClaims, _ := jwt.ParseWithClaims(jwtToken, &Claims{}, func(token *jwt.Token) (interface{}, error) {
+	tokenClaims, err := jwt.ParseWithClaims(jwtToken, &Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(obj.JwtKey), nil
 	})
 	if tokenClaims != nil {
 		if claims, ok := tokenClaims.Claims.(*Claims); ok && tokenClaims.Valid {
-			fmt.Println()
 			return claims.UserId, nil
 		}
 	}
-	return 0, nil
+	return 0, err
 }
