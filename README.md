@@ -50,7 +50,7 @@ go build
 
 ```shell
 # URL Encode
-./DevTools url encode 你好，世界。
+./DevTools url encode "你好，世界。"
 # URL Decode
 ./DevTools url decode %E4%BD%A0%E5%A5%BD%EF%BC%8C%E4%B8%96%E7%95%8C%E3%80%82
 ```
@@ -75,4 +75,39 @@ go build
 ./DevTools number 10 43
 # 输入16进制，输出2、8、10进制
 ./DevTools number 16 2b
+```
+
+### image
+
+```shell
+# 图片压缩，压缩比 0 ~ 100
+./DevTools image compress tools/image/compress/sample.jpg 50
+# 图片格式转换 jpg -> png
+./DevTools image convert tools/image/convert/sample.jpg
+```
+
+### json2yaml
+
+```shell
+# Json 转换 Yaml
+./DevTools json2yaml tools/convert/json2yaml/sample.json
+```
+
+### format
+
+```shell
+# json格式化
+./DevTools format json "{\"name\":\"aa\",\"age\":11}"
+# json文件格式化
+./DevTools format_file json tools/format/json/sample.json
+
+# xml格式化
+./DevTools format xml "<user><name>aaa</name><age>11</age></user>"
+# xml文件格式化
+./DevTools format_file xml tools/format/xml/sample.xml
+
+# sql格式化
+./DevTools format sql "select * from test_table where name like '%a%' order by id desc limit 10"
+# sql文件格式化
+./DevTools format_file sql tools/format/sql/sample.sql
 ```

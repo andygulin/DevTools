@@ -3,6 +3,7 @@ package json
 import (
 	"encoding/json"
 	"os"
+	"path/filepath"
 )
 
 type JsonFormat struct {
@@ -35,5 +36,7 @@ func (obj *JsonFormat) FormatFile(filename string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return filename, nil
+
+	output, _ := filepath.Abs(filename)
+	return output, nil
 }

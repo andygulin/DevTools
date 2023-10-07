@@ -49,5 +49,6 @@ func (obj *CompressImpl) Compress(filename string) (string, error) {
 		return "", err
 	}
 
-	return outputFileName, nil
+	output, _ := filepath.Abs(outputFileName)
+	return output, nil
 }

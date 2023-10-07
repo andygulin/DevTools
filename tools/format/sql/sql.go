@@ -4,6 +4,7 @@ import (
 	"github.com/cockroachdb/cockroachdb-parser/pkg/sql/parser"
 	"github.com/cockroachdb/cockroachdb-parser/pkg/sql/sem/tree"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 	"unicode"
@@ -83,5 +84,7 @@ func (obj *SQLFormat) FormatFile(filename string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return filename, nil
+
+	output, _ := filepath.Abs(filename)
+	return output, nil
 }

@@ -11,3 +11,7 @@ func TestSQLFormat_Format(t *testing.T) {
 	}
 	t.Log(output)
 }
+
+func TestSQLFormat_FormatFile(t *testing.T) {
+
+}

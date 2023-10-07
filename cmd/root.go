@@ -3,7 +3,9 @@ package cmd
 import (
 	. "DevTools/cmd/convert"
 	. "DevTools/cmd/encode"
+	. "DevTools/cmd/format"
 	. "DevTools/cmd/hash"
+	. "DevTools/cmd/image"
 	. "DevTools/cmd/uuid"
 	"fmt"
 	"github.com/spf13/cobra"
@@ -37,6 +39,14 @@ func Execute() {
 
 	NumberCmd.AddCommand(Number2Cmd, Number8Cmd, Number10Cmd, Number16Cmd)
 	rootCmd.AddCommand(NumberCmd)
+
+	ImageCmd.AddCommand(ImageCompressCmd, ImageConvertCmd)
+	rootCmd.AddCommand(ImageCmd)
+
+	rootCmd.AddCommand(Json2YamlCmd)
+
+	rootCmd.AddCommand(FormatCmd)
+	rootCmd.AddCommand(FormatFileCmd)
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

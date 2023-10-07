@@ -11,3 +11,7 @@ func TestJsonFormat_Format(t *testing.T) {
 	}
 	t.Log(output)
 }
+
+func TestJsonFormat_FormatFile(t *testing.T) {
+
+}

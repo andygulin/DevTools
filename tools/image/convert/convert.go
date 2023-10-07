@@ -43,5 +43,7 @@ func (obj *ConvertImpl) Convert(filename string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return outputFileName, nil
+
+	output, _ := filepath.Abs(outputFileName)
+	return output, nil
 }

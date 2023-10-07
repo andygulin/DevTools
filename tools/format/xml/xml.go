@@ -3,6 +3,7 @@ package xml
 import (
 	"github.com/go-xmlfmt/xmlfmt"
 	"os"
+	"path/filepath"
 )
 
 type XmlFormat struct {
@@ -25,5 +26,7 @@ func (obj *XmlFormat) FormatFile(filename string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return filename, nil
+
+	output, _ := filepath.Abs(filename)
+	return output, nil
 }
