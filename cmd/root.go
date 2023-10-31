@@ -6,6 +6,9 @@ import (
 	. "DevTools/cmd/format"
 	. "DevTools/cmd/hash"
 	. "DevTools/cmd/image"
+	. "DevTools/cmd/passwd"
+	. "DevTools/cmd/pinyin"
+	. "DevTools/cmd/qrcode"
 	. "DevTools/cmd/uuid"
 	"fmt"
 	"github.com/spf13/cobra"
@@ -47,6 +50,12 @@ func Execute() {
 
 	rootCmd.AddCommand(FormatCmd)
 	rootCmd.AddCommand(FormatFileCmd)
+
+	rootCmd.AddCommand(PasswordCmd)
+
+	rootCmd.AddCommand(PinyinCmd)
+
+	rootCmd.AddCommand(QrCodeCmd)
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

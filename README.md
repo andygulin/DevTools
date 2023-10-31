@@ -24,7 +24,7 @@ go build
 ./DevTools uuid
 ```
 
-### hash
+### md5 & hash
 
 ```shell
 # 输出md5
@@ -110,4 +110,27 @@ go build
 ./DevTools format sql "select * from test_table where name like '%a%' order by id desc limit 10"
 # sql文件格式化
 ./DevTools format_file sql tools/format/sql/sample.sql
+```
+
+### password
+
+```shell
+# 随机密码生成，长度10位
+./DevTools passwd 10
+# 随机密码生成，长度15位
+./DevTools passwd 15
+```
+
+### Pinyin
+
+```shell
+# 中文转拼音
+./DevTools pinyin 你好
+```
+
+### 生成二维码
+
+```shell
+# 生成 https://www.baidu.com 的二维码，尺寸500px
+./DevTools qrcode https://www.baidu.com 500
 ```
