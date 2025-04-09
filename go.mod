@@ -3,6 +3,7 @@ module DevTools
 go 1.21
 
 require (
+	github.com/chai2010/webp v1.4.0
 	github.com/cockroachdb/cockroachdb-parser v0.0.0-20230705064001-302c9ad52e1a
 	github.com/go-xmlfmt/xmlfmt v1.1.2
 	github.com/golang-jwt/jwt/v4 v4.5.0

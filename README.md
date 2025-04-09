@@ -82,7 +82,7 @@ go build
 ```shell
 # 图片压缩，压缩比 0 ~ 100
 ./DevTools image compress tools/image/compress/sample.jpg 50
-# 图片格式转换 jpg -> png
+# 图片格式转换 jpg -> png & webp
 ./DevTools image convert tools/image/convert/sample.jpg
 ```
 
